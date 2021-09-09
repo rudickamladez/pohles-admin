@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { SocketService } from './socketio/socket.service';
 
 @Component({
   selector: "app-root",
@@ -6,5 +7,10 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"]
 })
 export class AppComponent {
-  title = "black-dashboard-angular";
+  title = "PohLes Admin";
+
+  public constructor(
+    private readonly socketService: SocketService,
+  ) {
+  }
 }
