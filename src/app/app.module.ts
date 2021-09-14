@@ -13,6 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { CustomersComponent } from './pages/customers/customers.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   imports: [
@@ -25,7 +26,7 @@ import { CustomersComponent } from './pages/customers/customers.component';
     AppRoutingModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, CustomersComponent],
+  declarations: [AppComponent, AdminLayoutComponent, CustomersComponent, NotFoundComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
