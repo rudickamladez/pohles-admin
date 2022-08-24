@@ -1,4 +1,8 @@
-# App
+# PohLes-admin
+[![Netlify Status](https://api.netlify.com/api/v1/badges/932d3b5e-3bf7-4546-938f-e4aa7aa6e067/deploy-status)](https://app.netlify.com/sites/pohles-admin/deploys)
+
+Administration for ticket reservation system
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.9.
 
