@@ -14,14 +14,16 @@ import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { HelloComponent } from './hello/hello.component';
 
 @NgModule({
   declarations: [
-    AppComponent, 
-    AdminLayoutComponent, 
-    CustomersComponent, 
+    AppComponent,
+    AdminLayoutComponent,
+    CustomersComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    HelloComponent,
   ],
   imports: [
     BrowserModule,
