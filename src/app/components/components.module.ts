@@ -8,9 +8,10 @@ import { NavbarComponent } from "./navbar/navbar.component";
 import { SidebarComponent } from "./sidebar/sidebar.component";
 import { ActionBarCustomersComponent } from './customers/action-bar-customers/action-bar-customers.component';
 import { FormCreateCustomersComponent } from './customers/form-create-customers/form-create-customers.component';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule],
+  imports: [CommonModule, RouterModule, NgbModule, FontAwesomeModule],
   declarations: [FooterComponent, NavbarComponent, SidebarComponent, ActionBarCustomersComponent, FormCreateCustomersComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent, ActionBarCustomersComponent]
 })
