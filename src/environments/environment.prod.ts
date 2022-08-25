@@ -6,7 +6,7 @@ export const environment = {
   },
   keycloak: {
     issuer: 'https://auth.lukasmatuska.cz/realms/pohles',
-    redirectUri: 'https://admin.pohles.rudickamldez.cz/',
+    redirectUri: 'https://pohles.rudickamldez.cz/',
     clientId: 'frontend',
     responseType: 'code',
     scope: 'openid profile email',
