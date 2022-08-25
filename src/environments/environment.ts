@@ -9,7 +9,7 @@ export const environment = {
     socketio: "https://api.pohles.rudickamladez.cz/ws"
   },
   keycloak: {
-    issuer: 'https://auth.rudickamladez.cz/auth/realms/pohles',
+    issuer: 'https://auth.lukasmatuska.cz/realms/pohles',
     redirectUri: 'http://localhost:4200/',
     clientId: 'frontend',
     responseType: 'code',

@@ -5,8 +5,8 @@ export const environment = {
     socketio: "https://api.pohles.rudickamladez.cz/ws"
   },
   keycloak: {
-    issuer: 'https://auth.rudickamladez.cz/auth/realms/pohles',
-    redirectUri: 'https://pohles.rudickamldez.cz/',
+    issuer: 'https://auth.lukasmatuska.cz/realms/pohles',
+    redirectUri: 'https://admin.pohles.rudickamldez.cz/',
     clientId: 'frontend',
     responseType: 'code',
     scope: 'openid profile email',
