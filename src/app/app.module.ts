@@ -15,6 +15,7 @@ import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component'
+import { HelloComponent } from './components/hello/hello.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component'
     AdminLayoutComponent,
     CustomersComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    HelloComponent,
   ],
   imports: [
     BrowserModule,
