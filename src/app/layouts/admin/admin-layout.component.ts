@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { faCog } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-admin-layout",
@@ -7,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class AdminLayoutComponent implements OnInit {
   public sidebarColor: string = "green";
+  faCog = faCog;
 
   constructor() { }
 
