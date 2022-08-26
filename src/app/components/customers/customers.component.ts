@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/types/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { SocketService } from 'src/app/socketio/socket.service';
-
+import { faPencilAlt, faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
 })
 export class CustomersComponent implements OnInit {
+  faPencilAlt = faPencilAlt;
+  faTrash = faTrash;
 
   public customers: Customer[] = [];
 
