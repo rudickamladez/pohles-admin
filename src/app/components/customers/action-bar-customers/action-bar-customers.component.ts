@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/services/customer.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { faCoffee } from '@fortawesome/free-solid-svg-icons';
   templateUrl: './action-bar-customers.component.html',
 })
 export class ActionBarCustomersComponent implements OnInit {
-  faCoffee = faCoffee;
+  faPlus = faPlus;
 
   constructor(
     private readonly customerService: CustomerService,
@@ -19,10 +19,10 @@ export class ActionBarCustomersComponent implements OnInit {
     this.customerService.register(
       {
         name: {
-          first: '',
-          last: '',
+          first: 'kresni jmeno',
+          last: 'prijmeni',
         },
-        email: '',
+        email: 'email',
       }
     );
   }

@@ -7,16 +7,14 @@ import { ToastrModule } from 'ngx-toastr';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { LoginComponent } from './auth/login/login.component';
 import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
-import { CustomersComponent } from './pages/customers/customers.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { ActionBarCustomersComponent } from './components/customers/action-bar-customers/action-bar-customers.component';
+import { CustomersComponent } from './components/customers/customers.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component'
 
 @NgModule({
   declarations: [
@@ -40,6 +38,6 @@ import { ActionBarCustomersComponent } from './components/customers/action-bar-c
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
