@@ -23,7 +23,6 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "@ng-bootstrap/ng-bootstrap": "^13.0.0",
-    "@types/socket.io-client": "^3.0.0",
     "angular-oauth2-oidc": "^12.1.0",
     "chart.js": "^3.5.1",
     "core-js": "^3.18.2",
