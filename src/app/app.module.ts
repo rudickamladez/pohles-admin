@@ -16,6 +16,8 @@ import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { CustomersComponent } from './components/customers/customers.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component'
 import { HelloComponent } from './components/hello/hello.component';
+import { TicketsComponent } from './components/tickets/tickets.component';
+import { TicketsActionBarComponent } from './components/tickets/tickets-action-bar/tickets-action-bar.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { HelloComponent } from './components/hello/hello.component';
     NotFoundComponent,
     LoginComponent,
     HelloComponent,
+    TicketsComponent,
+    TicketsActionBarComponent,
   ],
   imports: [
     BrowserModule,
