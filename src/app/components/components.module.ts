@@ -2,7 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
-import { NgxScannerQrcodeModule } from 'ngx-scanner-qrcode';
 
 import { FooterComponent } from "./footer/footer.component";
 import { NavbarComponent } from "./navbar/navbar.component";
@@ -12,7 +11,7 @@ import { FormCreateCustomersComponent } from './customers/form-create-customers/
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
-  imports: [CommonModule, RouterModule, NgbModule, FontAwesomeModule, NgxScannerQrcodeModule],
+  imports: [CommonModule, RouterModule, NgbModule, FontAwesomeModule],
   declarations: [FooterComponent, NavbarComponent, SidebarComponent, ActionBarCustomersComponent, FormCreateCustomersComponent],
   exports: [FooterComponent, NavbarComponent, SidebarComponent, ActionBarCustomersComponent]
 })
