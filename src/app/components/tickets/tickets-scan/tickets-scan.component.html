@@ -1,0 +1,35 @@
+<div class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <app-tickets-action-bar></app-tickets-action-bar>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tickets Scam</h4>
+                    
+                    <!-- Scanned data -->
+                    <p>{{output}}</p>
+                </div>
+                <div class="card-body">
+                    <!-- Camera toggle -->
+                    <button class="btn text-white px-5 py-4 mr-1 m-auto" (click)="action.toggleCamera()" [disabled]="action.isLoading">
+                        {{action.isStart ? 'Stop' : 'Start'}}
+                    </button>
+                    <div class="py-4">
+                        <!-- Loading -->
+                        <p class="display-4 m-2" *ngIf="action.isLoading">
+                            ⌛ Loading video...
+                        </p>
+
+                        <!-- Video canvas -->
+                        <ngx-scanner-qrcode #action="scanner" (data)="processOutput($event)" (error)="onError($event)">
+                        </ngx-scanner-qrcode>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
