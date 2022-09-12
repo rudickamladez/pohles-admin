@@ -7,7 +7,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class TicketsActionBarComponent implements OnInit {
   faSearch = faSearch;
-  scanPath = "/tickets/scan";
+  scanPath = "scan";
 
   constructor() { }
 
