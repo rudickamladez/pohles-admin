@@ -31,7 +31,6 @@ import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
     HelloComponent,
     TicketsComponent,
     TicketsActionBarComponent,
-    TicketsScanComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +41,7 @@ import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
     NgbModule,
     ToastrModule.forRoot(),
     OAuthModule.forRoot(),
-    FontAwesomeModule,
-    NgxScannerQrcodeModule,
+    FontAwesomeModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
