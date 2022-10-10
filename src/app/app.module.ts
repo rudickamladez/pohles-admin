@@ -18,6 +18,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component'
 import { HelloComponent } from './components/hello/hello.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
 import { TicketsActionBarComponent } from './components/tickets/tickets-action-bar/tickets-action-bar.component';
+import { TicketsScanComponent } from './components/tickets/tickets-scan/tickets-scan.component';
+import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
 
 @NgModule({
   declarations: [
