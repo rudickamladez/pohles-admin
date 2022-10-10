@@ -10,9 +10,11 @@ import { TypographyComponent } from "../../pages/typography/typography.component
 import { CustomersComponent } from "src/app/components/customers/customers.component";
 import { NotFoundComponent } from "src/app/pages/not-found/not-found.component";
 import { TicketsComponent } from "src/app/components/tickets/tickets.component";
+import { TicketsScanComponent } from "src/app/components/tickets/tickets-scan/tickets-scan.component";
 
 export const AdminLayoutRoutes: Routes = [
   { path: "dashboard", component: DashboardComponent },
+  { path: "tickets/scan", component: TicketsScanComponent },
   { path: "tickets", component: TicketsComponent },
   { path: "customers", component: CustomersComponent },
   { path: "icons", component: IconsComponent },

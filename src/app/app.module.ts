@@ -29,6 +29,7 @@ import { TicketsActionBarComponent } from './components/tickets/tickets-action-b
     HelloComponent,
     TicketsComponent,
     TicketsActionBarComponent,
+    TicketsScanComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +40,8 @@ import { TicketsActionBarComponent } from './components/tickets/tickets-action-b
     NgbModule,
     ToastrModule.forRoot(),
     OAuthModule.forRoot(),
-    FontAwesomeModule
+    FontAwesomeModule,
+    NgxScannerQrcodeModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
