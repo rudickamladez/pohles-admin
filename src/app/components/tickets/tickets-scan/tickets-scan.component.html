@@ -25,7 +25,7 @@
                         </p>
 
                         <!-- Video canvas -->
-                        <ngx-scanner-qrcode #action="scanner" (data)="processOutput($event)" (error)="onError($event)">
+                        <ngx-scanner-qrcode #action="scanner" (event)="processOutput(action)" (error)="onError($event)">
                         </ngx-scanner-qrcode>
                     </div>
                 </div>
