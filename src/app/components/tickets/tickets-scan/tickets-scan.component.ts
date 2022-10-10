@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { NgxScannerQrcodeComponent } from 'ngx-qrcode-updated';
 const DEFAULT_OUTPUT_STRING = "Scan some QR code please.";
 @Component({
   selector: 'app-tickets-scan',
@@ -18,13 +19,8 @@ export class TicketsScanComponent implements OnInit {
   /**
    * processOutput
    */
-  public processOutput(data: string) {
-    if (data === null) {
-      this.output = DEFAULT_OUTPUT_STRING;
-      return;
-    }
-    console.log(data);
-    this.output = data;
+  public processOutput(action: NgxScannerQrcodeComponent) {
+    this.output = action.data;
   }
 
   public onError(e: any): void {
