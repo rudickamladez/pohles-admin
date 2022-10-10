@@ -7,6 +7,17 @@ const DEFAULT_OUTPUT_STRING = "Scan some QR code please.";
 })
 export class TicketsScanComponent implements OnInit {
   public output: string = DEFAULT_OUTPUT_STRING;
+  public reservation = {
+    name: {
+      first: "Franta",
+      last: "Dobrota",
+    },
+    email: "franta@lukasmatuska.cz",
+    time: {
+      name: "69:69",
+    },
+    status: "unpaid",
+  };
 
   constructor() {
     
