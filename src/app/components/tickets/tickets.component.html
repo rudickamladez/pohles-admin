@@ -16,25 +16,55 @@
                         <thead>
                             <tr>
                                 <th>Time</th>
-                                <!-- <th>ID</th> -->
                                 <th>First name</th>
                                 <th>Last name</th>
                                 <th>Email</th>
                                 <th>Status</th>
-                                <!-- <th>Date</th> -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let ticket of tickets">
                                 <td>{{ ticket.time.name }}</td>
-                                <!-- <td>{{ ticket.id }}</td> -->
                                 <td>{{ ticket.name.first }}</td>
                                 <td>{{ ticket.name.last }}</td>
                                 <td>{{ ticket.email }}</td>
                                 <td>{{ ticket.status }}</td>
-                                <!-- <td>{{ ticket.date }}</td> -->
-                                <td>todo</td>
+                                <td>
+                                    <swal
+                                        #detailSwal
+                                        title="Ticket detail"
+                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
+                                        icon="info"
+                                    ></swal>
+                                    <swal
+                                        #deleteSwal
+                                        title="Do you want delete this ticket?"
+                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
+                                        icon="warning"
+                                        [showCancelButton]="true"
+                                        [focusCancel]="true"
+                                        (confirm)="delete(ticket)"
+                                    ></swal>
+                                    <swal
+                                        #mailAgainSwal
+                                        title="Do you want to send e-mail again?"
+                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
+                                        icon="question"
+                                        [showCancelButton]="true"
+                                        [focusCancel]="true"
+                                        (confirm)="sendMailAgain(ticket)"
+                                    ></swal>
+                                    <button class="btn px-1 py-1 mr-1" [swal]="detailSwal">
+                                        <fa-icon [icon]="faEye"></fa-icon>
+                                    </button>
+                                    <button class="btn text-danger px-1 py-1 mr-1" [swal]="deleteSwal">
+                                        <fa-icon [icon]="faTrash"></fa-icon>
+                                    </button>
+                                    <button class="btn text-warning px-1 py-1 mr-1" [swal]="mailAgainSwal">
+                                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                                    </button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

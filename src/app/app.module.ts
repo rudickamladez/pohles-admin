@@ -22,6 +22,8 @@ import { TicketsScanComponent } from './components/tickets/tickets-scan/tickets-
 import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
 import { DataTablesModule } from 'angular-datatables';
 import * as $ from 'jquery';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import * as $ from 'jquery';
     FontAwesomeModule,
     NgxScannerQrcodeModule,
     DataTablesModule,
+    SweetAlert2Module.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
