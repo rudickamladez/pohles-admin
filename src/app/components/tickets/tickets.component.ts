@@ -21,6 +21,8 @@ export class TicketsComponent implements OnDestroy, OnInit {
   ) {
     this.socketService.on("new-ticket", (ticket: Ticket) => {
       this.tickets.push(ticket);
+      // Calling the DT trigger to manually render the table
+      this.dtTrigger.next();
     });
 
     this.socketService.on("update-ticket", (ticket: Ticket) => {
@@ -28,6 +30,8 @@ export class TicketsComponent implements OnDestroy, OnInit {
       let found = this.tickets.filter(value => value.id === ticket.id);
       if(found[0]){
         this.update(found[0], ticket);
+        // Calling the DT trigger to manually render the table
+        this.dtTrigger.next();
       }
     });
 
@@ -35,6 +39,8 @@ export class TicketsComponent implements OnDestroy, OnInit {
       let found = this.tickets.filter(value => value.id === ticket.id);
       if(found[0]){
         this.delete(ticket);
+        // Calling the DT trigger to manually render the table
+        this.dtTrigger.next();
       }
     });
   }
