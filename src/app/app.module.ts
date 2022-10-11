@@ -20,6 +20,8 @@ import { TicketsComponent } from './components/tickets/tickets.component';
 import { TicketsActionBarComponent } from './components/tickets/tickets-action-bar/tickets-action-bar.component';
 import { TicketsScanComponent } from './components/tickets/tickets-scan/tickets-scan.component';
 import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
+import { DataTablesModule } from 'angular-datatables';
+import * as $ from 'jquery';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { NgxScannerQrcodeModule } from 'ngx-qrcode-updated';
     ToastrModule.forRoot(),
     OAuthModule.forRoot(),
     FontAwesomeModule,
-    NgxScannerQrcodeModule
+    NgxScannerQrcodeModule,
+    DataTablesModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
