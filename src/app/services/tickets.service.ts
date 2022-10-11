@@ -45,6 +45,16 @@ export class TicketsService {
     );
   }
 
+  public mailAgain(
+    id: string
+  ): Observable<Object> {
+    return this.httpClient.post(`${environment.backend.api}/${this.API_PATH}/mail/${id}`, null).pipe(
+      map(
+        (result: any) => <Object>result
+      )
+    );
+  }
+
   public create(
     ticket: Ticket
   ): Observable<Ticket> {
