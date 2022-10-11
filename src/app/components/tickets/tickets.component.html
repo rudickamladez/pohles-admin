@@ -9,10 +9,35 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Tickets</h4>
-                    <p>Lorem ipsum.</p>
+                    <p>There is table with list of tickets.</p>
                 </div>
-                <div class="card-body">
-                    asdf
+                <div class="card-body table-responsive">
+                    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table tablesorter row-border hover table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <!-- <th>ID</th> -->
+                                <th>First name</th>
+                                <th>Last name</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                                <!-- <th>Date</th> -->
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ticket of tickets">
+                                <td>{{ ticket.time.name }}</td>
+                                <!-- <td>{{ ticket.id }}</td> -->
+                                <td>{{ ticket.name.first }}</td>
+                                <td>{{ ticket.name.last }}</td>
+                                <td>{{ ticket.email }}</td>
+                                <td>{{ ticket.status }}</td>
+                                <!-- <td>{{ ticket.date }}</td> -->
+                                <td>todo</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
