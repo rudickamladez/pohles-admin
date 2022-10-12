@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.timeService.getActiveSum().subscribe(
       (timeSum) => {
-        // this.paidTickets = timeSum.paid;
-        this.reservedTickets = timeSum.occupied;
+        this.paidTickets = timeSum.paid;
+        this.reservedTickets = timeSum.reserved;
         this.freeTickets = timeSum.free;
         this.totalTickets = timeSum.total;
       }

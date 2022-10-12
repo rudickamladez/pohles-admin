@@ -18,7 +18,8 @@ export interface TimeForFrontend {
 }
 
 export interface TimeSum {
-  free: number;
-  occupied: number;
-  total: number;
+    paid: number;
+    free: number;
+    reserved: number;
+    total: number;
 }
