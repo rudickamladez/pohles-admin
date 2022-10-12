@@ -31,37 +31,13 @@
                                 <td>{{ ticket.email }}</td>
                                 <td>{{ ticket.status }}</td>
                                 <td>
-                                    <swal
-                                        #detailSwal
-                                        title="Ticket detail"
-                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
-                                        icon="info"
-                                    ></swal>
-                                    <swal
-                                        #deleteSwal
-                                        title="Do you want delete this ticket?"
-                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
-                                        icon="warning"
-                                        [showCancelButton]="true"
-                                        [focusCancel]="true"
-                                        (confirm)="delete(ticket)"
-                                    ></swal>
-                                    <swal
-                                        #mailAgainSwal
-                                        title="Do you want to send e-mail again?"
-                                        html="ID: {{ ticket.id }} <br> Time: {{ ticket.time.name }}<br> Firstname: {{ ticket.name.first }}<br> Lastname: {{ ticket.name.last }}<br> E-mail: {{ ticket.email }}<br> Status: {{ ticket.status }}<br> Date: {{ ticket.date }}"
-                                        icon="question"
-                                        [showCancelButton]="true"
-                                        [focusCancel]="true"
-                                        (confirm)="sendMailAgain(ticket)"
-                                    ></swal>
-                                    <button class="btn px-1 py-1 mr-1" [swal]="detailSwal">
+                                    <button class="btn px-1 py-1 mr-1"[swal]="getDetailSwalOptions(ticket)">
                                         <fa-icon [icon]="faEye"></fa-icon>
                                     </button>
-                                    <button class="btn text-danger px-1 py-1 mr-1" [swal]="deleteSwal">
+                                    <button class="btn text-danger px-1 py-1 mr-1" [swal]="getDeleteSwalOptions(ticket)" (confirm)="delete(ticket)">
                                         <fa-icon [icon]="faTrash"></fa-icon>
                                     </button>
-                                    <button class="btn text-warning px-1 py-1 mr-1" [swal]="mailAgainSwal">
+                                    <button class="btn text-warning px-1 py-1 mr-1" [swal]="getMailAgainSwalOptions(ticket)" (confirm)="sendMailAgain(ticket)">
                                         <fa-icon [icon]="faEnvelope"></fa-icon>
                                     </button>
                                 </td>

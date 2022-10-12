@@ -5,6 +5,7 @@ import { TicketsService } from 'src/app/services/tickets.service';
 import { Ticket } from 'src/app/types/ticket';
 import { faEye, faTrash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
+import { SweetAlertOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-tickets',
@@ -43,6 +44,44 @@ export class TicketsComponent implements OnDestroy, OnInit {
         this.delete(ticket);
       }
     });
+  }
+
+  public toHtml(ticket: Ticket) {
+    return `ID: ${ ticket.id }<br>
+    Time: ${ ticket.time.name }<br>
+    Firstname: ${ ticket.name.first }<br>
+    Lastname: ${ ticket.name.last }<br>
+    E-mail: ${ ticket.email }<br>
+    Status: ${ ticket.status }<br>
+    Date: ${ ticket.date }`;
+  }
+
+  public getDetailSwalOptions(ticket: Ticket): SweetAlertOptions {
+    return {
+      titleText: "Ticket detail",
+      html: this.toHtml(ticket),
+      icon: "info",
+    };
+  }
+
+  public getDeleteSwalOptions(ticket: Ticket): SweetAlertOptions {
+    return {
+      titleText: "Do you want delete this ticket?",
+      html: this.toHtml(ticket),
+      icon: "warning",
+      showCancelButton: true,
+      focusCancel: true,
+    };
+  }
+
+  public getMailAgainSwalOptions(ticket: Ticket): SweetAlertOptions {
+    return {
+      titleText: "Do you want to send e-mail again?",
+      html: this.toHtml(ticket),
+      icon: "question",
+      showCancelButton: true,
+      focusCancel: true,
+    };
   }
 
   public async sendMailAgain(ticket: Ticket) {
