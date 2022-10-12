@@ -9,13 +9,12 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">Tickets Scan</h4>
-                    
                     <!-- Scanned data -->
                     <p>{{output}}</p>
                 </div>
                 <div class="card-body">
                     <!-- Camera toggle -->
-                    <button class="btn text-white px-5 py-4 mr-1 m-auto" (click)="action.toggleCamera()" [disabled]="action.isLoading">
+                    <button class="btn text-white px-5 py-4 mr-1 m-auto" (click)="toggleCamera()" [disabled]="action.isLoading">
                         {{action.isStart ? 'Stop' : 'Start'}}
                     </button>
                     <div class="py-4">
@@ -25,7 +24,7 @@
                         </p>
 
                         <!-- Video canvas -->
-                        <ngx-scanner-qrcode #action="scanner" (event)="processOutput(action)" (error)="onError($event)">
+                        <ngx-scanner-qrcode #action="scanner" (error)="onError($event)">
                         </ngx-scanner-qrcode>
                     </div>
                 </div>

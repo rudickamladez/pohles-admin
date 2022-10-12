@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnInit, ViewChild } from '@angular/core';
 import { NgxScannerQrcodeComponent } from 'ngx-qrcode-updated';
 const DEFAULT_OUTPUT_STRING = "Scan some QR code please.";
 @Component({
@@ -19,19 +19,28 @@ export class TicketsScanComponent implements OnInit {
     status: "unpaid",
   };
 
+  @ViewChild("action")
+  public action!: NgxScannerQrcodeComponent;
+
   constructor() {
     
   }
 
-  ngOnInit(): void {
-    
+  public toggleCamera() {
+    this.action.toggleCamera();
+    let event = this.action.event;
+    if(event.observers.length == 0 && (this.action.isStart || this.action.isLoading)) {
+      event.subscribe(
+        //This lambda is called on event.
+        (data) => {
+          this.output = data;
+        }
+      );
+    }
   }
 
-  /**
-   * processOutput
-   */
-  public processOutput(action: NgxScannerQrcodeComponent) {
-    this.output = action.data;
+  ngOnInit(): void {
+    
   }
 
   public onError(e: any): void {
