@@ -31,16 +31,16 @@
                                 <td>{{ ticket.email }}</td>
                                 <td>{{ ticket.status }}</td>
                                 <td>
-                                    <button class="btn px-1 py-1 mr-1"[swal]="getDetailSwalOptions(ticket)">
+                                    <button class="btn px-1 py-1 m-1"[swal]="getDetailSwalOptions(ticket)">
                                         <fa-icon [icon]="faEye"></fa-icon>
                                     </button>
-                                    <button class="btn text-danger px-1 py-1 mr-1" [swal]="getDeleteSwalOptions(ticket)" (confirm)="delete(ticket)">
+                                    <button class="btn text-danger px-1 py-1 m-1" [swal]="getDeleteSwalOptions(ticket)" (confirm)="delete(ticket)">
                                         <fa-icon [icon]="faTrash"></fa-icon>
                                     </button>
-                                    <button class="btn text-warning px-1 py-1 mr-1" [swal]="getMailAgainSwalOptions(ticket)" (confirm)="sendMailAgain(ticket)">
+                                    <button class="btn text-warning px-1 py-1 m-1" [swal]="getMailAgainSwalOptions(ticket)" (confirm)="sendMailAgain(ticket)">
                                         <fa-icon [icon]="faEnvelope"></fa-icon>
                                     </button>
-                                    <button class="btn px-1 py-1 mr-1" [swal]="getPaySwalOptions(ticket)" (confirm)="pay(ticket)">
+                                    <button class="btn px-1 py-1 m-1" [swal]="getPaySwalOptions(ticket)" (confirm)="pay(ticket)">
                                         <fa-icon [icon]="faMoneyBill"></fa-icon>
                                     </button>
                                 </td>
