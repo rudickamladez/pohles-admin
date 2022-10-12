@@ -14,35 +14,39 @@
                 </div>
                 <div class="card-body">
                     <!-- Camera toggle -->
-                    <button class="btn text-white px-5 py-4 mr-1 m-auto" (click)="toggleCamera()" [disabled]="action.isLoading">
-                        {{action.isStart ? 'Stop' : 'Start'}}
+                    <button class="btn text-white px-3 py-3 m-1" (click)="toggleCamera()" [disabled]="action.isLoading">
+                        <span *ngIf="action.isStart"><fa-icon [icon]="faStop"></fa-icon> Stop</span>
+                        <span *ngIf="!action.isStart"><fa-icon [icon]="faPlay"></fa-icon> Start</span>
                     </button>
+                    <!-- Pay ticket -->
+                    <button class="btn text-white px-3 py-3 m-1" (click)="pay()" [disabled]="!canPay">
+                        <fa-icon [icon]="faMoneyBillTrendUp"></fa-icon>
+                        Pay
+                    </button>
+                    
+                    <div class="py-4 px-2">
+                        <h4 class="card-title">Ticket detail</h4>
+                        <p *ngIf="!ticket">There will be information about reservation.</p>
+                        <p *ngIf="ticket">There're information about reservation.</p>
+                        <span *ngIf="ticket">
+                            <p>Name:    <b>{{ ticket.name.first}} {{ticket.name.last}}</b></p>
+                            <p>Email:   <b>{{ ticket.email}}</b></p>
+                            <p>Time:    <b>{{ ticket.time.name}}</b></p>
+                            <p>Status:  <b>{{ ticket.status}}</b></p>
+                        </span>
+                    </div>
+
                     <div class="py-4">
                         <!-- Loading -->
                         <p class="display-4 m-2" *ngIf="action.isLoading">
-                            ⌛ Loading video...
+                            <fa-icon [icon]="faHourglass" [spin]="true"></fa-icon>
+                            Loading video...
                         </p>
 
                         <!-- Video canvas -->
                         <ngx-scanner-qrcode #action="scanner" (error)="onError($event)">
                         </ngx-scanner-qrcode>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h4 class="card-title">Reservation detail</h4>
-                    <p>There will be information about reservation.</p>
-                </div>
-                <div class="card-body">
-                    <p>Name:    <b>{{reservation.name.first}} {{reservation.name.last}}</b></p>
-                    <p>Email:   <b>{{reservation.email}}</b></p>
-                    <p>Time:    <b>{{reservation.time.name}}</b></p>
-                    <p>Status:  <b>{{reservation.status}}</b></p>
                 </div>
             </div>
         </div>
