@@ -1,34 +1,45 @@
 <div class="content">
   <div class="row">
-    <div class="col-lg-4">
+    <div class="col-lg-3">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">Paid tickets</h5>
+          <h3 class="card-title">
+            <fa-icon [icon]="faCoins"></fa-icon>
+            {{ paidTickets }}
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3">
       <div class="card">
         <div class="card-header">
           <h5 class="card-category">Reserved tickets</h5>
           <h3 class="card-title">
             <fa-icon [icon]="faTicket"></fa-icon>
-            1234
+            {{ reservedTickets }}
           </h3>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
       <div class="card">
         <div class="card-header">
           <h5 class="card-category">Free tickets</h5>
           <h3 class="card-title">
             <fa-icon [icon]="faTicket"></fa-icon>
-            1234
+            {{ freeTickets }}
           </h3>
         </div>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-3">
       <div class="card">
         <div class="card-header">
           <h5 class="card-category">Total tickets</h5>
           <h3 class="card-title">
             <fa-icon [icon]="faTicket"></fa-icon>
-            1234
+            {{ totalTickets }}
           </h3>
         </div>
       </div>
