@@ -45,6 +45,24 @@ export class TicketsService {
     );
   }
 
+  public getById(id: string): Observable<Ticket> {
+    return this.httpClient.get(`${environment.backend.api}/${this.API_PATH}/${id}`).pipe(
+      map(
+        (result: any) => <Ticket>result
+      )
+    );
+  }
+
+  public pay(
+    id: string
+  ): Observable<Ticket> {
+    return this.httpClient.post(`${environment.backend.api}/${this.API_PATH}/pay/${id}`, null).pipe(
+      map(
+        (result: any) => <Ticket>result
+      )
+    );
+  }
+
   public mailAgain(
     id: string
   ): Observable<Object> {

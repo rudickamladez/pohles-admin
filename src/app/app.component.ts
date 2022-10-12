@@ -43,8 +43,7 @@ export class AppComponent {
       (ticket: Ticket) => {
         this.toastr.info(
           `<span class="tim-icons icon-coins" [data-notify]="icon"></span>
-          <b>Paid ticket</b> at ${ticket.time.name}!
-          by ${ticket.name.first} ${ticket.name.last}`,
+          <b>Ticket</b> paid by ${ticket.name.first} ${ticket.name.last} on time "${ticket.time.name}"`,
           '',
           {
             disableTimeOut: true,

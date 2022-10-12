@@ -3,7 +3,7 @@ import { Subject } from 'rxjs';
 import { SocketService } from 'src/app/socketio/socket.service';
 import { TicketsService } from 'src/app/services/tickets.service';
 import { Ticket } from 'src/app/types/ticket';
-import { faEye, faTrash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faTrash, faEnvelope, faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 import { ToastrService } from 'ngx-toastr';
 import { SweetAlertOptions } from 'sweetalert2';
 
@@ -15,6 +15,7 @@ export class TicketsComponent implements OnDestroy, OnInit {
   public faEye = faEye;
   public faTrash = faTrash;
   public faEnvelope = faEnvelope;
+  public faMoneyBill = faMoneyBill;
   public tickets: Ticket[] = [];
   dtOptions: DataTables.Settings = {};
   // We use this trigger because fetching the list of persons can be quite long,
@@ -31,11 +32,7 @@ export class TicketsComponent implements OnDestroy, OnInit {
     });
 
     this.socketService.on("update-ticket", (ticket: Ticket) => {
-      let found = this.tickets.filter(value => value.id === ticket.id);
-      if(found[0]){
-        let index = this.tickets.indexOf(found[0]);
-        this.tickets[index] = ticket;
-      }
+      this.updateTicketInTickets(ticket);
     });
 
     this.socketService.on("delete-ticket", (ticket: Ticket) => {
@@ -44,6 +41,14 @@ export class TicketsComponent implements OnDestroy, OnInit {
         this.delete(ticket);
       }
     });
+  }
+
+  public updateTicketInTickets(ticket: Ticket) {
+    let found = this.tickets.filter(value => value.id === ticket.id);
+      if(found[0]){
+        let index = this.tickets.indexOf(found[0]);
+        this.tickets[index] = ticket;
+      }
   }
 
   public toHtml(ticket: Ticket) {
@@ -84,6 +89,16 @@ export class TicketsComponent implements OnDestroy, OnInit {
     };
   }
 
+  public getPaySwalOptions(ticket: Ticket): SweetAlertOptions {
+    return {
+      titleText: "Do you want pay this ticket?",
+      html: this.toHtml(ticket),
+      icon: "question",
+      showCancelButton: true,
+      focusCancel: true,
+    };
+  }
+
   public async sendMailAgain(ticket: Ticket) {
     if (!ticket.id) {
       this.toastr.error(
@@ -114,6 +129,28 @@ export class TicketsComponent implements OnDestroy, OnInit {
         );
       }
     );
+  }
+
+  public pay(ticket: Ticket) {
+    if (!ticket.id) {
+      this.toastr.error(
+        `<span class="tim-icons icon-trash-simple" [data-notify]="icon"></span> <b>Ticket DIDN'T paid!</b> Can't pay! Didn't receive ticket id.`,
+        '',
+        {
+          disableTimeOut: true,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-error alert-with-icon",
+          positionClass: 'toast-top-right',
+        }
+      );
+      return;
+    }
+    this.ticketsService.pay(ticket.id).subscribe(
+      (ticket) => {
+        this.updateTicketInTickets(ticket);
+      }
+    )
   }
 
   public delete(ticket: Ticket) {
