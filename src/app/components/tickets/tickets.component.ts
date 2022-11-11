@@ -196,7 +196,7 @@ export class TicketsComponent implements OnDestroy, OnInit {
       (tickets) => {
         this.tickets = tickets;
         // Calling the DT trigger to manually render the table
-        this.dtTrigger.next();
+        this.dtTrigger.next(null);
       }
     );
 
