@@ -8,9 +8,14 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private readonly authService: AuthService, private readonly router: Router) {
+  constructor(
+    private readonly authService: AuthService,
+    private readonly router: Router
+  ) {
     if (!authService.isLoggedIn()) {
       authService.login();
+    } else {
+      this.router.navigate(['/dashboard']);
     }
   }
 

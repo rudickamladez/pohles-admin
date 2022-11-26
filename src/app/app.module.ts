@@ -24,6 +24,7 @@ import { DataTablesModule } from 'angular-datatables';
 import * as $ from 'jquery';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TicketsComponent,
     TicketsActionBarComponent,
     TicketsScanComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

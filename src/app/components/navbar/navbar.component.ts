@@ -3,6 +3,8 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { User } from "src/app/auth/user";
+import { AuthService } from "src/app/auth/auth.service";
 
 @Component({
   selector: "app-navbar",
@@ -20,6 +22,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   closeResult?: string;
 
   constructor(
+    public readonly authService: AuthService,
     location: Location,
     private element: ElementRef,
     private router: Router,
@@ -28,6 +31,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.location = location;
     this.sidebarVisible = false;
   }
+
+  get user(): User { return this.authService.getUser(); }
+
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   updateColor = () => {
     var navbar = document.getElementsByClassName('navbar')[0];
@@ -42,6 +48,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   ngOnInit() {
     window.addEventListener("resize", this.updateColor);
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.listTitles.push({ path: "/profile", title: "Profile" });
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
     this.router.events.subscribe(event => {
@@ -169,7 +176,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         return this.listTitles[item].title;
       }
     }
-    return "Dashboard";
+    return "Not found";
   }
 
   open(content: any) {
