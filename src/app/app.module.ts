@@ -13,7 +13,6 @@ import { AuthInterceptor } from './auth/auth.interceptor';
 import { LoginComponent } from './auth/login/login.component';
 import { ComponentsModule } from './components/components.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
-import { CustomersComponent } from './components/customers/customers.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component'
 import { HelloComponent } from './components/hello/hello.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
@@ -30,7 +29,6 @@ import { ProfileComponent } from './components/profile/profile.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    CustomersComponent,
     NotFoundComponent,
     LoginComponent,
     HelloComponent,
