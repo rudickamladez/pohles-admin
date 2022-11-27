@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     window.addEventListener("resize", this.updateColor);
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     this.listTitles.push({ path: "/profile", title: "Profile" });
+    this.listTitles.push({ path: "/tickets/scan", title: "Tickets scan"});
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
     this.router.events.subscribe(event => {
