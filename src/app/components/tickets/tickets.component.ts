@@ -12,6 +12,7 @@ import { SweetAlertOptions } from 'sweetalert2';
   templateUrl: './tickets.component.html'
 })
 export class TicketsComponent implements OnDestroy, OnInit {
+  public loadingState = 1;
   public faEye = faEye;
   public faTrash = faTrash;
   public faEnvelope = faEnvelope;
@@ -28,18 +29,24 @@ export class TicketsComponent implements OnDestroy, OnInit {
     private readonly toastr: ToastrService
   ) {
     this.socketService.on("new-ticket", (ticket: Ticket) => {
+      this.loadingState++;
       this.tickets.push(ticket);
+      this.loadingState--;
     });
 
     this.socketService.on("update-ticket", (ticket: Ticket) => {
+      this.loadingState++;
       this.updateTicketInTickets(ticket);
+      this.loadingState--;
     });
 
     this.socketService.on("delete-ticket", (ticket: Ticket) => {
+      this.loadingState++;
       let found = this.tickets.filter(value => value.id === ticket.id);
       if(found[0]){
         this.delete(ticket);
       }
+      this.loadingState--;
     });
   }
 
@@ -197,6 +204,7 @@ export class TicketsComponent implements OnDestroy, OnInit {
         this.tickets = tickets;
         // Calling the DT trigger to manually render the table
         this.dtTrigger.next(null);
+        this.loadingState--;
       }
     );
 

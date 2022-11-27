@@ -24,6 +24,7 @@ import * as $ from 'jquery';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     TicketsActionBarComponent,
     TicketsScanComponent,
     ProfileComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
