@@ -29,10 +29,10 @@
                         <p *ngIf="!ticket">There will be information about reservation.</p>
                         <p *ngIf="ticket">There're information about reservation.</p>
                         <span *ngIf="ticket">
-                            <p>Name:    <b>{{ ticket.name.first}} {{ticket.name.last}}</b></p>
-                            <p>Email:   <b>{{ ticket.email}}</b></p>
-                            <p>Time:    <b>{{ ticket.time.name}}</b></p>
-                            <p>Status:  <b>{{ ticket.status}}</b></p>
+                            <p>Name:    <code>{{ ticket.name.first}} {{ticket.name.last}}</code></p>
+                            <p>Email:   <code>{{ ticket.email}}</code></p>
+                            <p>Time:    <code>{{ ticket.time.name}}</code></p>
+                            <p>Status:  <code>{{ ticket.status}}</code></p>
                         </span>
                     </div>
 
