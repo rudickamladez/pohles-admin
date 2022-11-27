@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faList } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tickets-action-bar',
@@ -7,7 +7,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 })
 export class TicketsActionBarComponent implements OnInit {
   faSearch = faSearch;
-  scanPath = "scan";
+  faList = faList;
+  scanPath: string = '/tickets/scan';
+  ticketsPath: string = '/tickets';
 
   constructor() { }
 
