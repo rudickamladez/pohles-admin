@@ -9,7 +9,8 @@ import { SweetAlertOptions } from 'sweetalert2';
 
 @Component({
   selector: 'app-tickets',
-  templateUrl: './tickets.component.html'
+  templateUrl: './tickets.component.html',
+  styleUrls: ['./tickets.component.scss']
 })
 export class TicketsComponent implements OnDestroy, OnInit {
   public loadingState = 1;
