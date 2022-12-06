@@ -7,7 +7,18 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <div class="card">
+            <div *ngIf="this.errorLoading.enabled" class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Tickets</h4>
+                    <p>There's problem loading table with list of tickets.</p>
+                </div>
+                <div class="card-body">
+                    <p class="text-danger">
+                        {{ this.errorLoading.text }}
+                    </p>
+                </div>
+            </div>
+            <div *ngIf="!this.errorLoading.enabled" class="card">
                 <div class="card-header">
                     <h4 class="card-title">Tickets</h4>
                     <p>There is table with list of tickets.</p>
