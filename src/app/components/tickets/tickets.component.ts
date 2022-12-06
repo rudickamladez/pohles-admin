@@ -19,6 +19,10 @@ export class TicketsComponent implements OnDestroy, OnInit {
   public faEnvelope = faEnvelope;
   public faMoneyBill = faMoneyBill;
   public tickets: Ticket[] = [];
+  public errorLoading = {
+    enabled: false,
+    text: '',
+  };
   dtOptions: DataTables.Settings = {};
   // We use this trigger because fetching the list of persons can be quite long,
   // thus we ensure the data is fetched before rendering
@@ -200,14 +204,21 @@ export class TicketsComponent implements OnDestroy, OnInit {
       pageLength: 25,
     };
 
-    this.ticketsService.get().subscribe(
-      (tickets) => {
+    this.ticketsService.get().subscribe({
+      next: (tickets) => {
         this.tickets = tickets;
         // Calling the DT trigger to manually render the table
         this.dtTrigger.next(null);
         this.loadingState--;
-      }
-    );
+      },
+      error: (err) => {
+        console.error(err);
+        this.errorLoading.enabled = true;
+        this.errorLoading.text = err.error;
+        this.loadingState--;
+      },
+      complete: () => console.info('complete')
+  });
 
     this.ticketsService.deleteAsObservable().subscribe(
       (ticket) => {
