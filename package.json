@@ -12,7 +12,7 @@
   "dependencies": {
     "@angular/animations": "^14",
     "@angular/common": "^14",
-    "@angular/compiler": "^14",
+    "@angular/compiler": "^15",
     "@angular/core": "^14",
     "@angular/forms": "^14",
     "@angular/platform-browser": "^14",
